@@ -9,3 +9,6 @@
 * `pandas`
 * `selenium`
 * `chromedriver.exe`
+
+### 執行方法
+* `python3 -targer_id YOUR_TARGET_ACCT -user_ac YOUR_LOGIN_ACCT -user_pw YOUR_PASSWORD`

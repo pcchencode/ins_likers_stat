@@ -63,7 +63,7 @@ def login_ins_browser(ac, pw):
     from selenium.webdriver.chrome.options import Options
     import time
 
-    browser = webdriver.Chrome('./chromedriver')    #開啟chrome browser
+    browser = webdriver.Chrome('.//chromedriver')    #開啟chrome browser
     browser.get('https://www.instagram.com/po_chu_chen/')
 
     #先進行登入的動作

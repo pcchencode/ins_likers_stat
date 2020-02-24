@@ -2,6 +2,9 @@ import pandas as pd
 pd.set_option('display.max_rows', 250)
 import random
 from selenium import webdriver  #從library中引入webdriver
+#from selenium.webdriver.common.by import By
+from fake_useragent import UserAgent # !pip install fake-useragent
+from selenium.webdriver.chrome.options import Options
 import time
 import argparse
 
@@ -57,12 +60,6 @@ def get_all_posts(ins_id, user_ac, user_pw):
     return post_hrefs
 
 def login_ins_browser(ac, pw):
-    from selenium import webdriver  #從library中引入webdriver
-    #from selenium.webdriver.common.by import By
-    from fake_useragent import UserAgent # !pip install fake-useragent
-    from selenium.webdriver.chrome.options import Options
-    import time
-
     browser = webdriver.Chrome('.//chromedriver')    #開啟chrome browser
     browser.get('https://www.instagram.com/po_chu_chen/')
 
@@ -86,8 +83,6 @@ def login_ins_browser(ac, pw):
 
 #這個函數前面一定要有setting好的browser
 def get_likers(post_url, browser):
-    import pandas as pd
-    import random
     browser.get(post_url)
     time.sleep(1)
     video = browser.find_elements_by_xpath('//span[@aria-label="播放"]') #影片型post在網站抓不到likers，所以放棄

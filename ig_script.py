@@ -86,7 +86,8 @@ def get_likers(post_url, browser):
     browser.get(post_url)
     time.sleep(1)
     video = browser.find_elements_by_xpath('//span[@aria-label="播放"]') #影片型post在網站抓不到likers，所以放棄
-    if len(video)==0: #if the video is empty, we'll capture the likers-list
+    stream = browser.find_elements_by_xpath("//video[@class='tWeCl']")
+    if len(video)==0 and len(stream)==0: #if the video and stream are empty, we'll capture the likers-list
         try:
             like_list_button = browser.find_element_by_xpath('//button[@class="sqdOP yWX7d     _8A5w5    "]')
             time.sleep(1)
